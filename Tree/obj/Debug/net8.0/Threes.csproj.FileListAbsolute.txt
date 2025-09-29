@@ -1,0 +1,14 @@
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\Threes\obj\Debug\net8.0\Threes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\Threes\obj\Debug\net8.0\Threes.csproj.CoreCompileInputs.cache
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\Threes\obj\Debug\net8.0\Threes.sourcelink.json
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\Threes\bin\Debug\net8.0\Threes.exe
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\Threes\bin\Debug\net8.0\Threes.dll.config
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\Threes\bin\Debug\net8.0\Threes.deps.json
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\Threes\bin\Debug\net8.0\Threes.runtimeconfig.json
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\Threes\bin\Debug\net8.0\Threes.dll
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\Threes\bin\Debug\net8.0\Threes.pdb
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\Threes\obj\Debug\net8.0\Threes.dll
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\Threes\obj\Debug\net8.0\refint\Threes.dll
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\Threes\obj\Debug\net8.0\Threes.pdb
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\Threes\obj\Debug\net8.0\Threes.genruntimeconfig.cache
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\Threes\obj\Debug\net8.0\ref\Threes.dll
