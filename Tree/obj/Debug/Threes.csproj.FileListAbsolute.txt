@@ -1,0 +1,14 @@
+C:\Users\info\Desktop\Threes\bin\Debug\Threes.exe.config
+C:\Users\info\Desktop\Threes\bin\Debug\Threes.exe
+C:\Users\info\Desktop\Threes\bin\Debug\Threes.pdb
+C:\Users\info\Desktop\Threes\obj\Debug\Threes.csproj.AssemblyReference.cache
+C:\Users\info\Desktop\Threes\obj\Debug\Threes.csproj.CoreCompileInputs.cache
+C:\Users\info\Desktop\Threes\obj\Debug\Threes.exe
+C:\Users\info\Desktop\Threes\obj\Debug\Threes.pdb
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\Threes\bin\Debug\Threes.exe.config
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\Threes\bin\Debug\Threes.exe
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\Threes\bin\Debug\Threes.pdb
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\Threes\obj\Debug\Threes.csproj.AssemblyReference.cache
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\Threes\obj\Debug\Threes.csproj.CoreCompileInputs.cache
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\Threes\obj\Debug\Threes.exe
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\Threes\obj\Debug\Threes.pdb
