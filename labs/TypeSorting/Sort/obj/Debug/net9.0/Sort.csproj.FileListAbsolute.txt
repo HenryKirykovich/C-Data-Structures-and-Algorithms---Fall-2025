@@ -1,0 +1,15 @@
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\labs\TypeSorting\Sort\bin\Debug\net9.0\Sort.exe
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\labs\TypeSorting\Sort\bin\Debug\net9.0\Sort.deps.json
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\labs\TypeSorting\Sort\bin\Debug\net9.0\Sort.runtimeconfig.json
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\labs\TypeSorting\Sort\bin\Debug\net9.0\Sort.dll
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\labs\TypeSorting\Sort\bin\Debug\net9.0\Sort.pdb
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\labs\TypeSorting\Sort\obj\Debug\net9.0\Sort.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\labs\TypeSorting\Sort\obj\Debug\net9.0\Sort.AssemblyInfoInputs.cache
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\labs\TypeSorting\Sort\obj\Debug\net9.0\Sort.AssemblyInfo.cs
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\labs\TypeSorting\Sort\obj\Debug\net9.0\Sort.csproj.CoreCompileInputs.cache
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\labs\TypeSorting\Sort\obj\Debug\net9.0\Sort.sourcelink.json
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\labs\TypeSorting\Sort\obj\Debug\net9.0\Sort.dll
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\labs\TypeSorting\Sort\obj\Debug\net9.0\refint\Sort.dll
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\labs\TypeSorting\Sort\obj\Debug\net9.0\Sort.pdb
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\labs\TypeSorting\Sort\obj\Debug\net9.0\Sort.genruntimeconfig.cache
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\labs\TypeSorting\Sort\obj\Debug\net9.0\ref\Sort.dll
