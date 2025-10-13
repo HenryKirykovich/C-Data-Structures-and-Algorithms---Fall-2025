@@ -1,0 +1,15 @@
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\assignments\week-3-arrays-sorting\Week3ArraysSorting\bin\Debug\net9.0\Week3ArraysSorting.exe
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\assignments\week-3-arrays-sorting\Week3ArraysSorting\bin\Debug\net9.0\Week3ArraysSorting.deps.json
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\assignments\week-3-arrays-sorting\Week3ArraysSorting\bin\Debug\net9.0\Week3ArraysSorting.runtimeconfig.json
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\assignments\week-3-arrays-sorting\Week3ArraysSorting\bin\Debug\net9.0\Week3ArraysSorting.dll
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\assignments\week-3-arrays-sorting\Week3ArraysSorting\bin\Debug\net9.0\Week3ArraysSorting.pdb
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\assignments\week-3-arrays-sorting\Week3ArraysSorting\obj\Debug\net9.0\Week3ArraysSorting.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\assignments\week-3-arrays-sorting\Week3ArraysSorting\obj\Debug\net9.0\Week3ArraysSorting.AssemblyInfoInputs.cache
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\assignments\week-3-arrays-sorting\Week3ArraysSorting\obj\Debug\net9.0\Week3ArraysSorting.AssemblyInfo.cs
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\assignments\week-3-arrays-sorting\Week3ArraysSorting\obj\Debug\net9.0\Week3ArraysSorting.csproj.CoreCompileInputs.cache
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\assignments\week-3-arrays-sorting\Week3ArraysSorting\obj\Debug\net9.0\Week3ArraysSorting.sourcelink.json
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\assignments\week-3-arrays-sorting\Week3ArraysSorting\obj\Debug\net9.0\Week3ArraysSorting.dll
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\assignments\week-3-arrays-sorting\Week3ArraysSorting\obj\Debug\net9.0\refint\Week3ArraysSorting.dll
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\assignments\week-3-arrays-sorting\Week3ArraysSorting\obj\Debug\net9.0\Week3ArraysSorting.pdb
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\assignments\week-3-arrays-sorting\Week3ArraysSorting\obj\Debug\net9.0\Week3ArraysSorting.genruntimeconfig.cache
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\assignments\week-3-arrays-sorting\Week3ArraysSorting\obj\Debug\net9.0\ref\Week3ArraysSorting.dll

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "Week3ArraysSorting/1.0.0": {
+        "runtime": {
+          "Week3ArraysSorting.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Week3ArraysSorting/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
