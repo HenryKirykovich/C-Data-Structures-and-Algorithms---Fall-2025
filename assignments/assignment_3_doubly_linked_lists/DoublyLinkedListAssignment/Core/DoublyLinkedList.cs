@@ -10,7 +10,7 @@ namespace DoublyLinkedListAssignment.Core;
 public class DoublyLinkedList<T> : IEnumerable<T> 
 // for heritage foreach method like list 
 {
-    internal sealed class Node
+    internal sealed class Node // insert class for saving node 
     {
         public T Value;
         public Node? Next;
@@ -18,8 +18,8 @@ public class DoublyLinkedList<T> : IEnumerable<T>
         public Node(T value) => Value = value;
     }
 
-    private Node? _head;
-    private Node? _tail;
+    private Node? _head;   // creating double linked list head will be in left side 
+    private Node? _tail; // tail will be in right side
     public int Count { get; private set; }
     public bool IsEmpty => Count == 0;
 
