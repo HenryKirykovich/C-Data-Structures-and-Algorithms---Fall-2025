@@ -4,7 +4,7 @@ namespace DoublyLinkedListAssignment.Applications;
 
 public sealed class MusicPlaylist
 {
-    private readonly DoublyLinkedList<Song> _songs = new();
+    private readonly DoublyLinkedList<Song> _songs = new(); // put all my album inside  
     private int _currentIndex = -1; // -1 means no selection
 
     public int Count => _songs.Count;

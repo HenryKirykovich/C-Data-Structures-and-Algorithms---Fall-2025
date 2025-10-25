@@ -7,7 +7,8 @@ namespace DoublyLinkedListAssignment.Core;
 /// This minimal version supports AddFirst/AddLast and enumeration.
 /// Other methods will be added in subsequent steps.
 /// </summary>
-public class DoublyLinkedList<T> : IEnumerable<T>
+public class DoublyLinkedList<T> : IEnumerable<T> 
+// for heritage foreach method like list 
 {
     internal sealed class Node
     {
