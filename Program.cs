@@ -24,6 +24,6 @@ Console.WriteLine("After popping one element:");
 
 foreach (var num in number)
 {
-
     Console.WriteLine(num);
 }
+
