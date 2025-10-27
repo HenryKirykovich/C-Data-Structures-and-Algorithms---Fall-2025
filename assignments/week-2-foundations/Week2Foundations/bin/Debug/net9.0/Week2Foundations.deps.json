@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "Week2Foundations/1.0.0": {
+        "runtime": {
+          "Week2Foundations.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Week2Foundations/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

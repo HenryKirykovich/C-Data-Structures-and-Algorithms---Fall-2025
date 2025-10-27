@@ -1,0 +1,15 @@
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\assignments\week-2-foundations\Week2Foundations\obj\Debug\net9.0\Week2Foundations.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\assignments\week-2-foundations\Week2Foundations\obj\Debug\net9.0\Week2Foundations.AssemblyInfoInputs.cache
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\assignments\week-2-foundations\Week2Foundations\obj\Debug\net9.0\Week2Foundations.AssemblyInfo.cs
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\assignments\week-2-foundations\Week2Foundations\obj\Debug\net9.0\Week2Foundations.csproj.CoreCompileInputs.cache
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\assignments\week-2-foundations\Week2Foundations\obj\Debug\net9.0\Week2Foundations.sourcelink.json
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\assignments\week-2-foundations\Week2Foundations\bin\Debug\net9.0\Week2Foundations.exe
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\assignments\week-2-foundations\Week2Foundations\bin\Debug\net9.0\Week2Foundations.deps.json
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\assignments\week-2-foundations\Week2Foundations\bin\Debug\net9.0\Week2Foundations.runtimeconfig.json
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\assignments\week-2-foundations\Week2Foundations\bin\Debug\net9.0\Week2Foundations.dll
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\assignments\week-2-foundations\Week2Foundations\bin\Debug\net9.0\Week2Foundations.pdb
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\assignments\week-2-foundations\Week2Foundations\obj\Debug\net9.0\Week2Foundations.dll
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\assignments\week-2-foundations\Week2Foundations\obj\Debug\net9.0\refint\Week2Foundations.dll
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\assignments\week-2-foundations\Week2Foundations\obj\Debug\net9.0\Week2Foundations.pdb
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\assignments\week-2-foundations\Week2Foundations\obj\Debug\net9.0\Week2Foundations.genruntimeconfig.cache
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\assignments\week-2-foundations\Week2Foundations\obj\Debug\net9.0\ref\Week2Foundations.dll
