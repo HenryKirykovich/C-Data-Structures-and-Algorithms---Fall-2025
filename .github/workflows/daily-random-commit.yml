@@ -21,6 +21,13 @@ jobs:
       - name: Create folder if needed
         run: mkdir -p automated_changes
 
+      - name: Randomize timing (optional jitter)
+        run: |
+          # Спим случайное время до ~30 минут, чтобы время коммита выглядело менее однообразно
+          JITTER=$((RANDOM % 1800))
+          echo "Sleeping for $JITTER seconds to add timing jitter..."
+          sleep $JITTER
+
       - name: Generate random change
         run: |
           FILE="automated_changes/random_change.txt"
@@ -28,7 +35,7 @@ jobs:
           # случайная строка (буквы+цифры)
           RANDOM_STR=$(head /dev/urandom | tr -dc 'a-zA-Z0-9' | head -c 12)
           # составляем осмысленную строку на английском
-          LINE="Random snippet ${RANDOM_STR} was changed code from ${TIMESTAMP}"
+          LINE="Note ${RANDOM_STR} at ${TIMESTAMP}"
           echo "$LINE" >> "$FILE"
           echo "Generated: $LINE"
 
@@ -64,7 +71,20 @@ jobs:
           if git diff --cached --quiet; then
             echo "Nothing to commit"
           else
-            COMMIT_MSG="Automated commit: Random snippet was changed from $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
+            NOW=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
+            # Набор естественных коротких сообщений; выбираем случайное
+            msgs=(
+              "Notes: update log"
+              "Chore: housekeeping"
+              "Docs: minor notes"
+              "Update timestamp"
+              "Small tweaks"
+              "Adjust notes"
+              "Maintenance update"
+              "Misc: keep notes fresh"
+            )
+            PICK=${msgs[$RANDOM % ${#msgs[@]}]}
+            COMMIT_MSG="$PICK ($NOW)"
             git commit -m "$COMMIT_MSG"
             # Явно пушим в ту же ветку, которую выкачали (обычно default branch)
             CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
