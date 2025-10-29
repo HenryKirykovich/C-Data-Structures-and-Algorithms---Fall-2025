@@ -35,16 +35,18 @@ Helpful icons!:
 namespace StackLab
 {
     /// <summary>
-    /// Student skeleton version - follow along with instructor to build this out!
-    /// Uncomment the class name and Main method when ready to use this version.
+    /// Completed interactive Stack application with undo/redo and statistics.
+    /// Follows the guided skeleton's 12 steps.
     /// </summary>
-    // class Program  // Uncomment this line when ready to use
-    class StudentSkeleton
+    class Program
     {
 
-        // TODO: Step 1 - Declare two stacks for action history and undo functionality
+        // Step 1 - Declare two stacks for action history and undo functionality
+        private static readonly Stack<string> actionHistory = new Stack<string>();
+        private static readonly Stack<string> undoHistory = new Stack<string>();
 
-        // TODO: Step 2 - Add a counter for total operations
+        // Step 2 - Add a counter for total operations
+        private static int totalOperations = 0;
 
         static void Main(string[] args)
         {
@@ -111,119 +113,172 @@ namespace StackLab
             Console.WriteLine("│ 4. Display   │ 5. Clear     │ 6. Undo        │");
             Console.WriteLine("│ 7. Redo      │ 8. Stats     │ 9. Exit        │");
             Console.WriteLine("└─────────────────────────────────────────────────┘");
-            // TODO: Step 3 - add stack size and total operations to our display
+            // Step 3 - add stack size and total operations to our display
+            Console.WriteLine($"ℹ️  Stack size: {actionHistory.Count}  |  Undo stack: {undoHistory.Count}  |  Ops: {totalOperations}");
             Console.Write("\nChoose operation (number or name): ");
         }
 
-        // TODO: Step 4 - Implement HandlePush method
+        // Step 4 - Implement HandlePush method
         static void HandlePush()
         {
-            // TODO: 
-            // 1. Prompt user for input
-            // 2. Validate input is not empty
-            // 3. Push to actionHistory stack
-            // 4. Clear undoHistory stack (new action invalidates redo)
-            // 5. Increment totalOperations
-            // 6. Show confirmation message
+            Console.Write("📝 Enter action to push: ");
+            string? input = Console.ReadLine();
+            string value = (input ?? string.Empty).Trim();
+
+            if (string.IsNullOrEmpty(value))
+            {
+                Console.WriteLine("❌ Action cannot be empty.\n");
+                return;
+            }
+
+            actionHistory.Push(value);
+            // New action invalidates redo history
+            undoHistory.Clear();
+            totalOperations++;
+            Console.WriteLine($"✅ Pushed: '{value}'\n");
         }
 
-        // TODO: Step 5 - Implement HandlePop method
+        // Step 5 - Implement HandlePop method
         static void HandlePop()
         {
-            // TODO:
-            // 1. Check if actionHistory stack has items (guard clause!)
-            // 2. If empty, show error message
-            // 3. If not empty:
-            //    - Pop from actionHistory
-            //    - Push popped item to undoHistory (for redo)
-            //    - Increment totalOperations
-            //    - Show what was popped
-            //    - Show new top item (if any)
+            if (actionHistory.Count == 0)
+            {
+                Console.WriteLine("❌ Nothing to pop. The stack is empty.\n");
+                return;
+            }
+
+            string removed = actionHistory.Pop();
+            // Save removed item for potential undo
+            undoHistory.Push(removed);
+            totalOperations++;
+            Console.WriteLine($"✅ Popped: '{removed}'");
+            if (actionHistory.Count > 0)
+            {
+                Console.WriteLine($"👀 New top: '{actionHistory.Peek()}'\n");
+            }
+            else
+            {
+                Console.WriteLine("ℹ️  Stack is now empty.\n");
+            }
         }
 
-        // TODO: Step 6 - Implement HandlePeek method
+        // Step 6 - Implement HandlePeek method
         static void HandlePeek()
         {
-            // TODO:
-            // 1. Check if actionHistory stack has items
-            // 2. If empty, show appropriate message
-            // 3. If not empty, peek at top item and display
-            // 4. Remember: Peek doesn't modify the stack!
+            if (actionHistory.Count == 0)
+            {
+                Console.WriteLine("👀 Stack is empty. Nothing on top.\n");
+                return;
+            }
+
+            string top = actionHistory.Peek();
+            Console.WriteLine($"👀 Top: '{top}' (stack size: {actionHistory.Count})\n");
         }
 
-        // TODO: Step 7 - Implement HandleDisplay method
+        // Step 7 - Implement HandleDisplay method
         static void HandleDisplay()
         {
-            // TODO:
-            // 1. Show a header for the display
-            // 2. Check if stack is empty
-            // 3. If not empty, enumerate through stack (foreach)
-            // 4. Show items in LIFO order with position numbers
-            // 5. Mark the top item clearly
-            // 6. Show total count
+            Console.WriteLine("\n📋 Action History (Top → Bottom):");
+            if (actionHistory.Count == 0)
+            {
+                Console.WriteLine("(empty)\n");
+                return;
+            }
+
+            int index = 0;
+            foreach (var item in actionHistory)
+            {
+                string marker = index == 0 ? "<- top" : string.Empty;
+                Console.WriteLine($" {index + 1}. {item} {marker}");
+                index++;
+            }
+            Console.WriteLine($"Total: {actionHistory.Count}\n");
         }
 
-        // TODO: Step 8 - Implement HandleClear method
+        // Step 8 - Implement HandleClear method
         static void HandleClear()
         {
-            // TODO:
-            // 1. Check if there are items to clear
-            // 2. If empty, show info message
-            // 3. If not empty:
-            //    - Remember count before clearing
-            //    - Clear both actionHistory and undoHistory
-            //    - Increment totalOperations
-            //    - Show confirmation with count cleared
+            if (actionHistory.Count == 0 && undoHistory.Count == 0)
+            {
+                Console.WriteLine("ℹ️  Nothing to clear.\n");
+                return;
+            }
+
+            int wasActions = actionHistory.Count;
+            int wasUndo = undoHistory.Count;
+
+            actionHistory.Clear();
+            undoHistory.Clear();
+            totalOperations++;
+            Console.WriteLine($"✅ Cleared. Removed {wasActions} from action stack and {wasUndo} from undo stack.\n");
         }
 
-        // TODO: Step 9 - Implement HandleUndo method (Advanced)
+        // Step 9 - Implement HandleUndo method (Advanced)
         static void HandleUndo()
         {
-            // TODO:
-            // 1. Check if undoHistory has items to restore
-            // 2. If empty, show "nothing to undo" message
-            // 3. If not empty:
-            //    - Pop from undoHistory
-            //    - Push back to actionHistory
-            //    - Increment totalOperations
-            //    - Show what was restored
+            if (undoHistory.Count == 0)
+            {
+                Console.WriteLine("ℹ️  Nothing to undo.\n");
+                return;
+            }
+
+            string restored = undoHistory.Pop();
+            actionHistory.Push(restored);
+            totalOperations++;
+            Console.WriteLine($"✅ Undo: restored '{restored}' to the stack.\n");
         }
 
-        // TODO: Step 10 - Implement HandleRedo method (Advanced)
+        // Step 10 - Implement HandleRedo method (Advanced)
         static void HandleRedo()
         {
-            // TODO:
-            // 1. Check if actionHistory has items to redo
-            // 2. If empty, show "nothing to redo" message
-            // 3. If not empty:
-            //    - Pop from actionHistory
-            //    - Push to undoHistory
-            //    - Increment totalOperations
-            //    - Show what was redone
+            // Redo here means: re-apply the last removal (re-remove the item we just restored)
+            if (actionHistory.Count == 0)
+            {
+                Console.WriteLine("ℹ️  Nothing to redo.\n");
+                return;
+            }
+
+            string reRemoved = actionHistory.Pop();
+            undoHistory.Push(reRemoved);
+            totalOperations++;
+            Console.WriteLine($"✅ Redo: removed '{reRemoved}' again.\n");
         }
 
-        // TODO: Step 11 - Implement ShowStatistics method
+        // Step 11 - Implement ShowStatistics method
         static void ShowStatistics()
         {
-            // TODO:
-            // Display current session statistics:
-            // - Current stack size
-            // - Undo stack size
-            // - Total operations performed
-            // - Whether stack is empty
-            // - Current top action (if any)
+            Console.WriteLine("\n📊 Session Statistics");
+            Console.WriteLine($"- Action stack size: {actionHistory.Count}");
+            Console.WriteLine($"- Undo stack size:   {undoHistory.Count}");
+            Console.WriteLine($"- Total operations:  {totalOperations}");
+            Console.WriteLine($"- Stack empty:       {(actionHistory.Count == 0 ? "yes" : "no")}");
+            if (actionHistory.Count > 0)
+            {
+                Console.WriteLine($"- Current top:       '{actionHistory.Peek()}'");
+            }
+            Console.WriteLine();
         }
 
-        // TODO: Step 12 - Implement ShowSessionSummary method
+        // Step 12 - Implement ShowSessionSummary method
         static void ShowSessionSummary()
         {
-            // TODO:
-            // Show final summary when exiting:
-            // - Total operations performed
-            // - Final stack size
-            // - List remaining actions (if any)
-            // - Encouraging message
-            // - Wait for keypress before exit
+            Console.WriteLine("\n=== Session Summary ===");
+            Console.WriteLine($"Total operations: {totalOperations}");
+            Console.WriteLine($"Final stack size: {actionHistory.Count}");
+            if (actionHistory.Count > 0)
+            {
+                Console.WriteLine("Remaining actions (Top → Bottom):");
+                int i = 0;
+                foreach (var item in actionHistory)
+                {
+                    string marker = i == 0 ? "<- top" : string.Empty;
+                    Console.WriteLine($" {i + 1}. {item} {marker}");
+                    i++;
+                }
+            }
+            Console.WriteLine("\nGreat work today! 🚀 Keep practicing stacks and LIFO thinking.\n");
+            Console.WriteLine("Press Enter to exit...");
+            Console.ReadLine();
         }
     }
 }
