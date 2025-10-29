@@ -1,0 +1,15 @@
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\labs\week-5-stack\bin\Debug\net9.0\Week5Stack.exe
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\labs\week-5-stack\bin\Debug\net9.0\Week5Stack.deps.json
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\labs\week-5-stack\bin\Debug\net9.0\Week5Stack.runtimeconfig.json
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\labs\week-5-stack\bin\Debug\net9.0\Week5Stack.dll
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\labs\week-5-stack\bin\Debug\net9.0\Week5Stack.pdb
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\labs\week-5-stack\obj\Debug\net9.0\Week5Stack.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\labs\week-5-stack\obj\Debug\net9.0\Week5Stack.AssemblyInfoInputs.cache
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\labs\week-5-stack\obj\Debug\net9.0\Week5Stack.AssemblyInfo.cs
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\labs\week-5-stack\obj\Debug\net9.0\Week5Stack.csproj.CoreCompileInputs.cache
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\labs\week-5-stack\obj\Debug\net9.0\Week5Stack.sourcelink.json
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\labs\week-5-stack\obj\Debug\net9.0\Week5Stack.dll
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\labs\week-5-stack\obj\Debug\net9.0\refint\Week5Stack.dll
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\labs\week-5-stack\obj\Debug\net9.0\Week5Stack.pdb
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\labs\week-5-stack\obj\Debug\net9.0\Week5Stack.genruntimeconfig.cache
+C:\Users\info\Desktop\C-Data-Structures-and-Algorithms---Fall-2025\labs\week-5-stack\obj\Debug\net9.0\ref\Week5Stack.dll
