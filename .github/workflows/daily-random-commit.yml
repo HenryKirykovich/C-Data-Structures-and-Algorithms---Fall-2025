@@ -1,13 +1,13 @@
 name: Daily Random Commit
 
-# Запуск по расписанию + ручной запуск
+# Schedule + manual run
 on:
   schedule:
-    - cron: '0 12 * * *'   # каждый день в 12:00 UTC — поменяй, если нужно
-  workflow_dispatch:       # позволит запускать вручную из Actions
+    - cron: '0 12 * * *'   # daily at 12:00 UTC — adjust if needed
+  workflow_dispatch:       # allow manual trigger from Actions
 
 permissions:
-  contents: write          # нужно, чтобы workflow мог пушить изменения
+  contents: write          # required to push changes
 
 jobs:
   random-commit:
@@ -16,7 +16,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          persist-credentials: true   # позволяет пушить используя GITHUB_TOKEN
+          persist-credentials: true   # push using GITHUB_TOKEN
 
       - name: Create folder if needed
         run: mkdir -p automated_changes
@@ -25,12 +25,12 @@ jobs:
         env:
           EVENT_NAME: ${{ github.event_name }}
         run: |
-          # Пропускаем задержку при ручном запуске (workflow_dispatch), чтобы не ждать во время проверки
+          # Skip delay on manual run to avoid waiting during verification
           if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
             echo "Skipping jitter for manual run"
             JITTER=0
           else
-            # Спим случайное время до ~30 минут, чтобы время коммита выглядело менее однообразно
+            # Sleep random time up to ~30 minutes to avoid same-time commits
             JITTER=$((RANDOM % 1800))
             echo "Sleeping for $JITTER seconds to add timing jitter..."
             sleep $JITTER
@@ -40,12 +40,61 @@ jobs:
         run: |
           FILE="automated_changes/random_change.txt"
           TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
-          # случайная строка (буквы+цифры)
+          # random alnum string
           RANDOM_STR=$(head /dev/urandom | tr -dc 'a-zA-Z0-9' | head -c 12)
-          # составляем осмысленную строку на английском
+          # add a simple line in English
           LINE="Note ${RANDOM_STR} at ${TIMESTAMP}"
           echo "$LINE" >> "$FILE"
           echo "Generated: $LINE"
+
+      - name: Prepare commit message (English only + external file)
+        id: prepmsg
+        run: |
+          FILE_DEFAULT="automated_changes/messages.txt"
+          FILE_EN="automated_changes/messages-en.txt"
+
+          pick_from_file() {
+            local F="$1"
+            if [ -s "$F" ]; then
+              # read non-empty lines as options
+              mapfile -t LINES < <(sed 's/\r$//' "$F" | awk 'NF>0')
+              if [ ${#LINES[@]} -gt 0 ]; then
+                local IDX=$((RANDOM % ${#LINES[@]}))
+                echo "${LINES[$IDX]}"
+                return 0
+              fi
+            fi
+            return 1
+          }
+
+          # Try English-specific file first, then generic file
+          MSG=$(pick_from_file "$FILE_EN" || true)
+          if [ -z "$MSG" ]; then MSG=$(pick_from_file "$FILE_DEFAULT" || true); fi
+
+          # Fallback to built-in English list if files are missing
+          if [ -z "$MSG" ]; then
+              msgs=(
+                "Docs: minor notes"
+                "Notes: update log"
+                "Chore: housekeeping"
+                "Maintenance update"
+                "Update timestamp"
+                "Small tweaks"
+                "Adjust notes"
+                "Misc: keep notes fresh"
+                "Refresh notes"
+                "Routine update"
+                "Editorial: tiny wording"
+                "Polish: small cleanup"
+                "Meta: notes refresh"
+                "Record today’s note"
+              )
+            MSG_IDX=$((RANDOM % ${#msgs[@]}))
+            MSG="${msgs[$MSG_IDX]}"
+          fi
+
+          NOW=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          echo "COMMIT_MSG=$MSG ($NOW)" >> "$GITHUB_OUTPUT"
 
       - name: Show git status (for logs)
         run: git status --porcelain && git --no-pager log -1 --pretty=oneline || true
@@ -56,8 +105,7 @@ jobs:
           SECRET_NAME: ${{ secrets.GIT_AUTHOR_NAME }}
           SECRET_EMAIL: ${{ secrets.GIT_AUTHOR_EMAIL }}
         run: |
-          # Если заданы секреты GIT_AUTHOR_NAME/EMAIL, используем их.
-          # Иначе — используем владельца репозитория и его noreply-адрес (username@users.noreply.github.com).
+          # Use secrets GIT_AUTHOR_NAME/EMAIL if provided, otherwise fall back to owner noreply address
           NAME="${SECRET_NAME:-$OWNER}"
           EMAIL="${SECRET_EMAIL:-$OWNER@users.noreply.github.com}"
 
@@ -66,35 +114,29 @@ jobs:
           git config user.name "$NAME"
           git config user.email "$EMAIL"
 
-          # Дополнительно зададим переменные окружения для автора/коммитера (на всякий случай)
+          # Also export author/committer env vars (just in case)
           export GIT_AUTHOR_NAME="$NAME"
           export GIT_AUTHOR_EMAIL="$EMAIL"
           export GIT_COMMITTER_NAME="$NAME"
           export GIT_COMMITTER_EMAIL="$EMAIL"
 
       - name: Commit and push changes to default branch
+        env:
+          PREPARED_MSG: ${{ steps.prepmsg.outputs.COMMIT_MSG }}
         run: |
           git add automated_changes/random_change.txt
-          # коммитим только если есть изменения
+          # commit only if there are changes
           if git diff --cached --quiet; then
             echo "Nothing to commit"
           else
-            NOW=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
-            # Набор естественных коротких сообщений; выбираем случайное
-            msgs=(
-              "Notes: update log"
-              "Chore: housekeeping"
-              "Docs: minor notes"
-              "Update timestamp"
-              "Small tweaks"
-              "Adjust notes"
-              "Maintenance update"
-              "Misc: keep notes fresh"
-            )
-            PICK=${msgs[$RANDOM % ${#msgs[@]}]}
-            COMMIT_MSG="$PICK ($NOW)"
+            # Use prepared message (from external file or fallback list)
+            COMMIT_MSG="${PREPARED_MSG}"
+            if [ -z "$COMMIT_MSG" ]; then
+              NOW=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
+              COMMIT_MSG="Maintenance update ($NOW)"
+            fi
             git commit -m "$COMMIT_MSG"
-            # Явно пушим в ту же ветку, которую выкачали (обычно default branch)
+            # Push explicitly to the checked-out branch (usually default branch)
             CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
             echo "Pushing to $CURRENT_BRANCH"
             git push origin "$CURRENT_BRANCH"
