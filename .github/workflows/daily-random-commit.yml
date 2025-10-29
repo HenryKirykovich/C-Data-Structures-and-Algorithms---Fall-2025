@@ -35,13 +35,29 @@ jobs:
       - name: Show git status (for logs)
         run: git status --porcelain && git --no-pager log -1 --pretty=oneline || true
 
-      - name: Configure Git user
+      - name: Configure Git user (as repository owner or provided secrets)
+        env:
+          OWNER: ${{ github.repository_owner }}
+          SECRET_NAME: ${{ secrets.GIT_AUTHOR_NAME }}
+          SECRET_EMAIL: ${{ secrets.GIT_AUTHOR_EMAIL }}
         run: |
-          # Используем стандартного бота GitHub Actions как автора
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Если заданы секреты GIT_AUTHOR_NAME/EMAIL, используем их.
+          # Иначе — используем владельца репозитория и его noreply-адрес (username@users.noreply.github.com).
+          NAME="${SECRET_NAME:-$OWNER}"
+          EMAIL="${SECRET_EMAIL:-$OWNER@users.noreply.github.com}"
 
-      - name: Commit and push changes
+          echo "Using commit author: $NAME <$EMAIL>"
+
+          git config user.name "$NAME"
+          git config user.email "$EMAIL"
+
+          # Дополнительно зададим переменные окружения для автора/коммитера (на всякий случай)
+          export GIT_AUTHOR_NAME="$NAME"
+          export GIT_AUTHOR_EMAIL="$EMAIL"
+          export GIT_COMMITTER_NAME="$NAME"
+          export GIT_COMMITTER_EMAIL="$EMAIL"
+
+      - name: Commit and push changes to default branch
         run: |
           git add automated_changes/random_change.txt
           # коммитим только если есть изменения
@@ -50,6 +66,9 @@ jobs:
           else
             COMMIT_MSG="Automated commit: Random snippet was changed from $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
             git commit -m "$COMMIT_MSG"
-            git push
+            # Явно пушим в ту же ветку, которую выкачали (обычно default branch)
+            CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+            echo "Pushing to $CURRENT_BRANCH"
+            git push origin "$CURRENT_BRANCH"
             echo "Pushed commit: $COMMIT_MSG"
           fi
