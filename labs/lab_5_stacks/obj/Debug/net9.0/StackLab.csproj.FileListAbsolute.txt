@@ -1,0 +1,15 @@
+/Users/zak_b_teaching/dev260_fall_2025/labs/lab_5_stacks/obj/Debug/net9.0/StackLab.GeneratedMSBuildEditorConfig.editorconfig
+/Users/zak_b_teaching/dev260_fall_2025/labs/lab_5_stacks/obj/Debug/net9.0/StackLab.AssemblyInfoInputs.cache
+/Users/zak_b_teaching/dev260_fall_2025/labs/lab_5_stacks/obj/Debug/net9.0/StackLab.AssemblyInfo.cs
+/Users/zak_b_teaching/dev260_fall_2025/labs/lab_5_stacks/obj/Debug/net9.0/StackLab.csproj.CoreCompileInputs.cache
+/Users/zak_b_teaching/dev260_fall_2025/labs/lab_5_stacks/obj/Debug/net9.0/StackLab.sourcelink.json
+/Users/zak_b_teaching/dev260_fall_2025/labs/lab_5_stacks/bin/Debug/net9.0/StackLab
+/Users/zak_b_teaching/dev260_fall_2025/labs/lab_5_stacks/bin/Debug/net9.0/StackLab.deps.json
+/Users/zak_b_teaching/dev260_fall_2025/labs/lab_5_stacks/bin/Debug/net9.0/StackLab.runtimeconfig.json
+/Users/zak_b_teaching/dev260_fall_2025/labs/lab_5_stacks/bin/Debug/net9.0/StackLab.dll
+/Users/zak_b_teaching/dev260_fall_2025/labs/lab_5_stacks/bin/Debug/net9.0/StackLab.pdb
+/Users/zak_b_teaching/dev260_fall_2025/labs/lab_5_stacks/obj/Debug/net9.0/StackLab.dll
+/Users/zak_b_teaching/dev260_fall_2025/labs/lab_5_stacks/obj/Debug/net9.0/refint/StackLab.dll
+/Users/zak_b_teaching/dev260_fall_2025/labs/lab_5_stacks/obj/Debug/net9.0/StackLab.pdb
+/Users/zak_b_teaching/dev260_fall_2025/labs/lab_5_stacks/obj/Debug/net9.0/StackLab.genruntimeconfig.cache
+/Users/zak_b_teaching/dev260_fall_2025/labs/lab_5_stacks/obj/Debug/net9.0/ref/StackLab.dll
