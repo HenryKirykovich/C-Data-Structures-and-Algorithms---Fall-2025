@@ -22,11 +22,19 @@ jobs:
         run: mkdir -p automated_changes
 
       - name: Randomize timing (optional jitter)
+        env:
+          EVENT_NAME: ${{ github.event_name }}
         run: |
-          # Спим случайное время до ~30 минут, чтобы время коммита выглядело менее однообразно
-          JITTER=$((RANDOM % 1800))
-          echo "Sleeping for $JITTER seconds to add timing jitter..."
-          sleep $JITTER
+          # Пропускаем задержку при ручном запуске (workflow_dispatch), чтобы не ждать во время проверки
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            echo "Skipping jitter for manual run"
+            JITTER=0
+          else
+            # Спим случайное время до ~30 минут, чтобы время коммита выглядело менее однообразно
+            JITTER=$((RANDOM % 1800))
+            echo "Sleeping for $JITTER seconds to add timing jitter..."
+            sleep $JITTER
+          fi
 
       - name: Generate random change
         run: |
