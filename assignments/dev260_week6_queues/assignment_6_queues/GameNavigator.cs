@@ -108,7 +108,8 @@ namespace Assignment6
                 if (running)
                 {
                     Console.WriteLine("Press any key to continue...");
-                    Console.ReadKey();
+                    if (!Console.IsInputRedirected)
+                        Console.ReadKey();
                     Console.Clear();
                 }
             }
