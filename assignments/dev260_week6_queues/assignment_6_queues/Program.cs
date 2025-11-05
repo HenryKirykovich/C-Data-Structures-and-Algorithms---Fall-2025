@@ -24,28 +24,72 @@ namespace Assignment6
                 // the user interface and coordinates between different parts of the system.
                 // This follows the Single Responsibility Principle - Program.cs just
                 // starts the app, GameNavigator handles the UI and flow.
-                var navigator = new GameNavigator();
-                
-                // Start the main application loop
-                // INSTRUCTOR NOTE: StartApplication() contains the main menu loop
-                // and handles all user interactions. By calling it here, we transfer
-                // control to the GameNavigator class.
-                navigator.StartApplication();
+                // If the program is started with "auto" argument, run a non-interactive
+                // smoke test that exercises the MatchmakingSystem methods. This is
+                // helpful for automated verification and CI runs.
+                if (args != null && args.Contains("auto"))
+                {
+                    RunAutoTest();
+                }
+                else
+                {
+                    var navigator = new GameNavigator();
+                    // Start the interactive application loop
+                    navigator.StartApplication();
+                }
             }
-            catch (Exception ex)
+                catch (Exception ex)
             {
                 // INSTRUCTOR NOTE: If something goes catastrophically wrong anywhere
                 // in the application, we'll end up here. This provides a graceful
                 // way to show the error and exit, rather than crashing abruptly.
-                
+
                 Console.WriteLine($"❌ Fatal error: {ex.Message}");
                 Console.WriteLine("Press any key to exit...");
-                Console.ReadKey();
-                
+                if (!Console.IsInputRedirected)
+                    Console.ReadKey();
+
                 // INSTRUCTOR NOTE: After showing the error, the program will naturally
                 // exit when this method ends. The user gets a chance to read the error
                 // message before the console window closes.
             }
+        }
+
+        /// <summary>
+        /// Simple non-interactive smoke test for basic matchmaking flows.
+        /// This method is only executed when running with the "auto" argument.
+        /// </summary>
+        private static void RunAutoTest()
+        {
+            var mm = new MatchmakingSystem();
+
+            // Create players
+            var a = mm.CreatePlayer("P1", 5, GameMode.Casual);
+            var b = mm.CreatePlayer("P2", 6, GameMode.Ranked);
+            var c = mm.CreatePlayer("P3", 7, GameMode.Ranked);
+            var d = mm.CreatePlayer("P4", 2, GameMode.QuickPlay);
+            var e = mm.CreatePlayer("P5", 4, GameMode.QuickPlay);
+
+            // Add to queues
+            mm.AddToQueue(a, GameMode.Casual);
+            mm.AddToQueue(b, GameMode.Ranked);
+            mm.AddToQueue(c, GameMode.Ranked);
+            mm.AddToQueue(d, GameMode.QuickPlay);
+            mm.AddToQueue(e, GameMode.QuickPlay);
+
+            // Process matches for each mode
+            foreach (var mode in new[] { GameMode.Casual, GameMode.Ranked, GameMode.QuickPlay })
+            {
+                Console.WriteLine($"\n--- Processing {mode} ---");
+                while (true)
+                {
+                    var match = mm.TryCreateMatch(mode);
+                    if (match == null) break;
+                    mm.ProcessMatch(match);
+                }
+            }
+
+            Console.WriteLine($"\nAuto-test complete. Matches played: {mm.GetMatchHistory().Count}");
         }
     }
 }
