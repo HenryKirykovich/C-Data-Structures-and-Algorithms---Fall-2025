@@ -1,0 +1,15 @@
+=== INVOICE ===
+Order #: 12345678
+Date: 2025-08-01
+Client: Cui Mengyang
+City: Seattle
+
+Description: chanhe electrical switch, 3-way switch
+Hours worked: 0.00
+Materials amount: $90.00
+Payment amount: $270.00
+Sales tax included: No
+Invoice date: 
+Payment date: 
+Payment method: Zelle
+================

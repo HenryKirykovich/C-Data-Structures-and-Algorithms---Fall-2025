@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Invoice 12345678</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .header { display: flex; justify-content: space-between; align-items: flex-start; }
+    .contractor-name { font-size: 22px; font-weight: bold; }
+    .section { margin-top: 20px; }
+    .section-title { font-weight: bold; margin-bottom: 5px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+    th, td { border: 1px solid #ccc; padding: 6px 8px; font-size: 13px; }
+    th { background-color: #f0f0f0; text-align: left; }
+    .right { text-align: right; }
+    .totals-table { width: 50%; margin-left: auto; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div>
+      <div class="contractor-name">Smart &amp; Handy Repairs</div>
+    </div>
+    <div>
+      <h2>INVOICE</h2>
+      <div>Invoice #: 12345678</div>
+      <div>Invoice date: 2025-12-06</div>
+      <div>Work date: 2025-08-01</div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-title">Bill To</div>
+    <div>Cui Mengyang</div>
+    <div>Phone: 12132715372</div>
+  </div>
+  <div class="section">
+    <div class="section-title">Work Description</div>
+    <table>
+      <tr><th>Description</th><th class="right">Hours</th><th class="right">Labor</th><th class="right">Materials</th><th class="right">Line Total</th></tr>
+      <tr>
+        <td>chanhe electrical switch, 3-way switch (Seattle)</td>
+        <td class="right">0.00</td>
+        <td class="right">$180.00</td>
+        <td class="right">$90.00</td>
+        <td class="right">$270.00</td>
+      </tr>
+    </table>
+  </div>
+  <div class="section">
+    <table class="totals-table">
+      <tr><th>Subtotal</th><td class="right">$270.00</td></tr>
+      <tr><th>Sales tax included</th><td class="right">No (10.35%)</td></tr>
+      <tr><th>Total</th><td class="right">$270.00</td></tr>
+    </table>
+  </div>
+  <div class="section">
+    <div class="section-title">Payment Options</div>
+    <div>1. Check: Payable to Smart &amp; Handy Repairs</div>
+    <div>2. Zelle: +1 425-221-4422</div>
+    <div>3. Bank Transfer (ACH / Wire):</div>
+    <div>Bank: US Bank</div>
+    <div>Account Name: Smart &amp; Handy Repairs (Checking)</div>
+    <div>Routing Number: 125000105</div>
+    <div>Account Number: 168405062899</div>
+  </div>
+  <div class="section">
+    <div class="section-title">Notes / Terms</div>
+    <div>Please contact me if you have any questions regarding payment.</div>
+  </div>
+</body>
+</html>
